@@ -22,7 +22,8 @@ const deactivate = () => { };
 
 const formatFile = () => {
   const editor = vscode.window.activeTextEditor;
-  if(editor && editor.document.languageId != 'lua') {
+  if(editor && ['lua', 'mtalua', 'mta-lua', 'mta_lua'].indexOf(editor.document.languageId) === -1) { 
+    // editor.document.languageId != 'lua') {
     vscode.window.showInformationMessage('Not a lua file.');
     return;
   }
